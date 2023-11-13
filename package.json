@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "test-store",
   "private": true,
   "sideEffects": false,
