@@ -429,3 +429,77 @@ const VARIANTS_QUERY = `#graphql
 /** @typedef {import('@shopify/hydrogen/storefront-api-types').CartLineInput} CartLineInput */
 /** @typedef {import('@shopify/hydrogen/storefront-api-types').SelectedOption} SelectedOption */
 /** @typedef {import('@shopify/remix-oxygen').SerializeFrom<typeof loader>} LoaderReturnData */
+
+//sending query to Storefront API 
+
+import {json, useLoaderData} from '@shopify/remix-oxygen';
+
+export async function loader({params, context: {storefront}}) {
+  const {product} = await storefront.query(
+    `#graphql
+      query Product($handle: String!) {
+        product(handle: $handle) { id title }
+      }
+    `,
+    {
+      /**
+       * Pass variables related to the query.
+       */
+      variables: {handle: params.productHandle},
+    },
+  );
+
+  return json({product});
+}
+
+export default function Product() {
+  const {product} = useLoaderData();
+
+  // ...
+}
+
+//defer data in Remix loaders 
+
+import {defer} from '@shopify/remix-oxygen';
+import {useLoaderData} from '@remix-run/react';
+
+export async function loader({params, context: {storefront}}) {
+  /* Await the important information */
+  const {product} = await storefront.query(
+    `#graphql
+      query Product($handle: String!) {
+        product(handle: $handle) { id title }
+      }
+    `,
+    {variables: {handle: params.productHandle}},
+  );
+
+  /* Keep data that can wait as promises */
+  const recommendedPromise = storefront.query(
+    `#graphql
+      query ProductRecommendations($productId: String!) {
+        productRecommendations(productId: $productId) { id title handle }
+      }
+    `,
+    {variables: {productId: product.id}},
+  );
+
+  /* Defer the promises in the return value */
+  return defer({product, recommended: recommendedPromise});
+}
+
+export default function Component() {
+  const {product, recommended} = useLoaderData();
+
+  return (
+    <div>
+      <Product value={product} />
+      {/* Wrap promises in a Suspense fallback and await them */}
+      <Suspense fallback={<Spinner />}>
+        <Await resolve={recommended}>
+          {(products) => <Recommendations value={products} />}
+        </Await>
+      </Suspense>
+    </div>
+  );
+}

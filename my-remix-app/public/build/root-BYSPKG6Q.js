@@ -36,7 +36,7 @@ if (import.meta) {
     //@ts-expect-error
     "app\\root.jsx"
   );
-  import.meta.hot.lastModified = "1699866526640.0479";
+  import.meta.hot.lastModified = "1699867276850.1936";
 }
 function App() {
   return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("html", { children: [
@@ -101,4 +101,4 @@ window.$RefreshSig$ = prevRefreshSig;
 export {
   App as default
 };
-//# sourceMappingURL=/build/root-CEWCD2AC.js.map
+//# sourceMappingURL=/build/root-BYSPKG6Q.js.map
