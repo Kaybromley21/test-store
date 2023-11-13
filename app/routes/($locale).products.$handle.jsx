@@ -429,3 +429,31 @@ const VARIANTS_QUERY = `#graphql
 /** @typedef {import('@shopify/hydrogen/storefront-api-types').CartLineInput} CartLineInput */
 /** @typedef {import('@shopify/hydrogen/storefront-api-types').SelectedOption} SelectedOption */
 /** @typedef {import('@shopify/remix-oxygen').SerializeFrom<typeof loader>} LoaderReturnData */
+
+//sending query to Storefront API 
+
+import {json, useLoaderData} from '@shopify/remix-oxygen';
+
+export async function loader({params, context: {storefront}}) {
+  const {product} = await storefront.query(
+    `#graphql
+      query Product($handle: String!) {
+        product(handle: $handle) { id title }
+      }
+    `,
+    {
+      /**
+       * Pass variables related to the query.
+       */
+      variables: {handle: params.productHandle},
+    },
+  );
+
+  return json({product});
+}
+
+export default function Product() {
+  const {product} = useLoaderData();
+
+  // ...
+}
