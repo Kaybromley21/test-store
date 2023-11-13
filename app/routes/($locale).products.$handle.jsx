@@ -457,3 +457,49 @@ export default function Product() {
 
   // ...
 }
+
+//defer data in Remix loaders 
+
+import {defer} from '@shopify/remix-oxygen';
+import {useLoaderData} from '@remix-run/react';
+
+export async function loader({params, context: {storefront}}) {
+  /* Await the important information */
+  const {product} = await storefront.query(
+    `#graphql
+      query Product($handle: String!) {
+        product(handle: $handle) { id title }
+      }
+    `,
+    {variables: {handle: params.productHandle}},
+  );
+
+  /* Keep data that can wait as promises */
+  const recommendedPromise = storefront.query(
+    `#graphql
+      query ProductRecommendations($productId: String!) {
+        productRecommendations(productId: $productId) { id title handle }
+      }
+    `,
+    {variables: {productId: product.id}},
+  );
+
+  /* Defer the promises in the return value */
+  return defer({product, recommended: recommendedPromise});
+}
+
+export default function Component() {
+  const {product, recommended} = useLoaderData();
+
+  return (
+    <div>
+      <Product value={product} />
+      {/* Wrap promises in a Suspense fallback and await them */}
+      <Suspense fallback={<Spinner />}>
+        <Await resolve={recommended}>
+          {(products) => <Recommendations value={products} />}
+        </Await>
+      </Suspense>
+    </div>
+  );
+}
