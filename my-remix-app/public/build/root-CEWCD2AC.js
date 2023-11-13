@@ -7,10 +7,10 @@ import {
   Meta,
   Outlet,
   Scripts
-} from "/build/_shared/chunk-AZZR3OB3.js";
+} from "/build/_shared/chunk-T5JQKRZT.js";
 import {
   createHotContext
-} from "/build/_shared/chunk-65KXQMTC.js";
+} from "/build/_shared/chunk-2Z6VWAQC.js";
 import "/build/_shared/chunk-UWV35TSL.js";
 import "/build/_shared/chunk-BOXFZXVX.js";
 import {
@@ -36,7 +36,7 @@ if (import.meta) {
     //@ts-expect-error
     "app\\root.jsx"
   );
-  import.meta.hot.lastModified = "1699865947916.6023";
+  import.meta.hot.lastModified = "1699866526640.0479";
 }
 function App() {
   return /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("html", { children: [
@@ -62,7 +62,7 @@ function App() {
       columnNumber: 7
     }, this),
     /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("body", { children: [
-      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h1", { children: "Hello alls!" }, void 0, false, {
+      /* @__PURE__ */ (0, import_jsx_dev_runtime.jsxDEV)("h1", { children: "Hello everyone!" }, void 0, false, {
         fileName: "app/root.jsx",
         lineNumber: 30,
         columnNumber: 9
@@ -101,4 +101,4 @@ window.$RefreshSig$ = prevRefreshSig;
 export {
   App as default
 };
-//# sourceMappingURL=/build/root-SVT7PBCA.js.map
+//# sourceMappingURL=/build/root-CEWCD2AC.js.map

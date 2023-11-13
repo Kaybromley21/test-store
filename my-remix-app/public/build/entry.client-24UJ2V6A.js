@@ -6,8 +6,8 @@ import {
 } from "/build/_shared/chunk-XU7DNSPJ.js";
 import {
   RemixBrowser
-} from "/build/_shared/chunk-AZZR3OB3.js";
-import "/build/_shared/chunk-65KXQMTC.js";
+} from "/build/_shared/chunk-T5JQKRZT.js";
+import "/build/_shared/chunk-2Z6VWAQC.js";
 import "/build/_shared/chunk-UWV35TSL.js";
 import "/build/_shared/chunk-GIAAE3CH.js";
 import {
@@ -35,4 +35,4 @@ var import_jsx_dev_runtime = __toESM(require_jsx_dev_runtime());
     }, this)
   );
 });
-//# sourceMappingURL=/build/entry.client-PEQPO77U.js.map
+//# sourceMappingURL=/build/entry.client-24UJ2V6A.js.map

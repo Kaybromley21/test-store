@@ -159,7 +159,7 @@ function App() {
       columnNumber: 7
     }, this),
     /* @__PURE__ */ jsxDEV2("body", { children: [
-      /* @__PURE__ */ jsxDEV2("h1", { children: "Hello alls!" }, void 0, !1, {
+      /* @__PURE__ */ jsxDEV2("h1", { children: "Hello everyone!" }, void 0, !1, {
         fileName: "app/root.jsx",
         lineNumber: 21,
         columnNumber: 9
@@ -192,7 +192,7 @@ function App() {
 }
 
 // server-assets-manifest:@remix-run/dev/assets-manifest
-var assets_manifest_default = { entry: { module: "/build/entry.client-PEQPO77U.js", imports: ["/build/_shared/chunk-ZWGWGGVF.js", "/build/_shared/chunk-XU7DNSPJ.js", "/build/_shared/chunk-AZZR3OB3.js", "/build/_shared/chunk-65KXQMTC.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-GIAAE3CH.js", "/build/_shared/chunk-BOXFZXVX.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-SVT7PBCA.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 } }, version: "2be22109", hmr: { runtime: "/build/_shared\\chunk-65KXQMTC.js", timestamp: 1699865948248 }, url: "/build/manifest-2BE22109.js" };
+var assets_manifest_default = { entry: { module: "/build/entry.client-24UJ2V6A.js", imports: ["/build/_shared/chunk-ZWGWGGVF.js", "/build/_shared/chunk-XU7DNSPJ.js", "/build/_shared/chunk-T5JQKRZT.js", "/build/_shared/chunk-2Z6VWAQC.js", "/build/_shared/chunk-UWV35TSL.js", "/build/_shared/chunk-GIAAE3CH.js", "/build/_shared/chunk-BOXFZXVX.js", "/build/_shared/chunk-PNG5AS42.js"] }, routes: { root: { id: "root", parentId: void 0, path: "", index: void 0, caseSensitive: void 0, module: "/build/root-CEWCD2AC.js", imports: void 0, hasAction: !1, hasLoader: !1, hasErrorBoundary: !1 } }, version: "b3546490", hmr: { runtime: "/build/_shared\\chunk-2Z6VWAQC.js", timestamp: 1699866527005 }, url: "/build/manifest-B3546490.js" };
 
 // server-entry-module:@remix-run/dev/server-build
 var mode = "development", assetsBuildDirectory = "public\\build", future = { v3_fetcherPersist: !1 }, publicPath = "/build/", entry = { module: entry_server_node_exports }, routes = {
